@@ -21,12 +21,12 @@
 	        </div>
 	
 	        <div class="container" id="cadastro">
-	            <form action="/alunos/salvar" method="POST">
+	            <form th:action="@{/alunos/salvar}" th:object="${aluno}" method="POST">
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nome">Nome do Aluno</label>
 	                        <input type="text" class="form-control" id="nm_aluno" placeholder="Nome Completo"
-	                               autofocus="autofocus" name="nm_aluno" value=""/>
+	                               autofocus="autofocus" th:field="*{nm_aluno}" />
 	                        <div class="invalid-feedback">
 	
 	                        </div>
@@ -34,13 +34,16 @@
 	                </div>
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
-	                        <label for="cd_curso">Curso</label>
-	                        <select id="cd_curso" class="form-control" name="cd_curso">
+	                        <label for="cd_curso">Código do Curso</label>
+	                        <input type="text" class="form-control" id="cd_curso" th:field="*{cd_curso}" />
+	                        <!-- 
+	                        <select id="cd_curso" class="form-control" th:field="*{cd_curso}">
 	                            <option value="">Selecione...</option>
 	                            <option value="1">Java</option>
 	                            <option value="2">Angular</option>
 	                            <option value="3">Spring</option>
 	                        </select>
+	                         -->
 	                        <div class="invalid-feedback">
 	
 	                        </div>
@@ -49,15 +52,14 @@
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nu_matricula">Matricula</label>
-	                        <input type="text" class="form-control" id="nu_matricula" name="nu_matricula" value=""/>
+	                        <input type="text" class="form-control" id="nu_matricula" th:field="*{nu_matricula}" />
 	                        <div class="invalid-feedback">
 	
 	                        </div>
 	                    </div>
 	                    <div class="form-group col-md-6">
 	                        <label for="nu_semestre">Semestre</label>
-	                        <input type="text" class="form-control" id="nu_semestre" placeholder="Semestre sem número"
-	                               name="endereco.nu_semestre" value=""/>
+	                        <input type="text" class="form-control" id="nu_semestre" placeholder="Semestre sem número" th:field="*{nu_semestre}" />
 	                        <div class="invalid-feedback">
 	
 	                        </div>
@@ -65,12 +67,15 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="ds_status">Status</label>
-								<select id="ds_status" class="form-control" name="ds_status">
+	                        <input type="text" class="form-control" id="ds_status" th:field="*{ds_status}" />
+								<!--
+								<select id="ds_status" class="form-control" th:field="*{ds_status}">
 									<option value="">Selecione...</option>
 									<option value="1">matriculado</option>
 									<option value="2">trancado</option>
 									<option value="3">jubilado</option>
 								</select>
+								-->
 								<div class="invalid-feedback">
 		
 								</div>
