@@ -16,18 +16,21 @@ public class CursoServiceImpl implements CursoService {
 	private CursoDao dao;
 
 	@Override
+	@Transactional(readOnly = false)
 	public void salvar(Curso curso) {
 		dao.save(curso);
 		
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public void editar(Curso curso) {
 		dao.update(curso);
 		
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public void excluir(Long id) {
 		dao.delete(id);
 		

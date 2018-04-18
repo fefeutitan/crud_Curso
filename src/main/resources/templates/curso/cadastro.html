@@ -20,26 +20,26 @@
 	        </nav>
 	
 	        <div class="container" id="cadastro">
-	            <form action="/cursos/salvar" method="POST">
+	            <form th:action="@{/cursos/salvar}" th:object="${curso}" method="POST">
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nm_curso">Cursos</label>
 	                        <input type="text" class="form-control" id="nm_curso"
-	                               placeholder="Nome Curso" autofocus="autofocus" name="nm_curso" value=""/>
+	                               placeholder="Nome Curso" autofocus="autofocus" th:field="*{nm_curso}" />
 	                    </div>
 	                </div>
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="cd_curso">Código</label>
 	                        <input type="text" class="form-control" id="cd_curso"
-	                               placeholder="Código Curso" autofocus="autofocus" name="cd_curso" value=""/>
+	                               placeholder="Código Curso" autofocus="autofocus" th:field="*{cd_curso}" />
 	                    </div>
 	                </div>
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nm_instituicao">Nome Instituição</label>
 	                        <input type="text" class="form-control" id="nm_instituicao"
-	                               placeholder="Nome Instituição" autofocus="autofocus" name="nm_instituicao" value=""/>
+	                               placeholder="Nome Instituição" autofocus="autofocus" th:field="*{nm_instituicao}" />
 	                    </div>
 	                </div>
 	                <input type="hidden" id="id" name="id" value=""/>

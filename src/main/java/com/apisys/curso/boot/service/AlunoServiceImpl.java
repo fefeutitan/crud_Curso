@@ -17,18 +17,21 @@ public class AlunoServiceImpl implements AlunoService {
 	private AlunoDao dao;
 
 	@Override
+	@Transactional(readOnly = false)
 	public void salvar(Aluno aluno) {
 		dao.save(aluno);
 		
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public void editar(Aluno aluno) {
 		dao.update(aluno);
 		
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public void excluir(Long id) {
 		dao.delete(id);
 		

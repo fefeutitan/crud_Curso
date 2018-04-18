@@ -25,148 +25,19 @@
 	                    <thead>
 	                    <tr>
 	                        <th>#</th>
+	                        <th>Código</th>
 	                        <th>Curso</th>
-	                        <th>Departamento</th>
-	                        <th>AÃ§Ã£o</th>
+	                        <th>Instituição</th>
 	                    </tr>
 	                    </thead>
 	                    <tbody>
-	                    <tr>
-	                        <td>1</td>
-	                        <td>Auxiliar ContÃ¡bil</td>
-	                        <td>Contabilidade</td>
+	                    <tr th:each="c : ${cursos}">
+	                        <td th:text="${c.id}"></td>
+	                        <td th:text="${c.cd_curso}"></td>
+	                        <td th:text="${c.nm_curso}"></td>
+	                        <td th:text="${c.nm_instituicao}"></td>
 	                        <td colspan="2">
 	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/1" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
-	                                <span class="oi oi-circle-x" title="ExclusÃ£o desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>2</td>
-	                        <td>Auxiliar Administrativo</td>
-	                        <td>AdministraÃ§Ã£o</td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/2" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
-	                                <span class="oi oi-circle-x" title="ExclusÃ£o desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>3</td>
-	                        <td>Contador</td>
-	                        <td>Contabilidade</td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/3" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
-	                                <span class="oi oi-circle-x" title="ExclusÃ£o desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>4</td>
-	                        <td>Adminitrador</td>
-	                        <td>AdministraÃ§Ã£o</td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/4" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
-	                                <span class="oi oi-circle-x" title="ExclusÃ£o desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>5</td>
-	                        <td>Programado PHP</td>
-	                        <td>Tecnologia da InformaÃ§Ã£o</td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/5" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
-	                                <span class="oi oi-circle-x" title="ExclusÃ£o desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>6</td>
-	                        <td>Desenvolvedor Java Jr.</td>
-	                        <td>Tecnologia da InformaÃ§Ã£o</td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/6" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
-	                                <span class="oi oi-circle-x" title="ExclusÃ£o desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>7</td>
-	                        <td>Desenvolvedor Java Pleno</td>
-	                        <td>Tecnologia da InformaÃ§Ã£o</td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/7" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
-	                                <span class="oi oi-circle-x" title="ExclusÃ£o desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>8</td>
-	                        <td>Desenvolvedor Java Senior</td>
-	                        <td>Tecnologia da InformaÃ§Ã£o</td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/8" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
-	                                <span class="oi oi-circle-x" title="ExclusÃ£o desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>9</td>
-	                        <td>Auxiliar de RH</td>
-	                        <td>Recursos Humanos</td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/9" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
-	                                <span class="oi oi-circle-x" title="ExclusÃ£o desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>10</td>
-	                        <td>Coordenador de RH</td>
-	                        <td>Recursos Humanos</td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/10" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
-	                                <span class="oi oi-circle-x" title="ExclusÃ£o desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>11</td>
-	                        <td>Psicologo</td>
-	                        <td>Recursos Humanos</td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/11" role="button">
 	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
 	                            </a>
 	                            <button type="button" class="btn btn-danger btn-sm" >
