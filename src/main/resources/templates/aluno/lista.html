@@ -43,7 +43,7 @@
 	                        <td th:text="${a.ds_status}"></td>
 	                        <td></td>
 	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/alunos/editar/1" role="button">
+	                            <a class="btn btn-info btn-sm" th:href="@{/alunos/editar/{id} (id=${c.id}) }" role="button">
 	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
 	                            </a>
 	                            <button id="btn_alunos/excluir/1" type="button" class="btn btn-danger btn-sm"

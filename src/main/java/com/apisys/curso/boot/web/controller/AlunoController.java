@@ -4,13 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.apisys.curso.boot.domain.Aluno;
-import com.apisys.curso.boot.domain.Curso;
 import com.apisys.curso.boot.service.AlunoService;
-import com.apisys.curso.boot.service.CursoService;
 
 @Controller
 @RequestMapping("/alunos")
@@ -32,6 +31,18 @@ public class AlunoController {
 	public String salvar(Aluno aluno) {
 		service.salvar(aluno);
 		return "redirect:/cursos/cadastrar";
+	}
+	
+	@GetMapping("/editar/{id}")
+	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
+		model.addAttribute("aluno", service.buscarPorId(id));
+		return "/aluno/cadastro";		
+	}
+	
+	@PostMapping("/editar")
+	public String editar(Aluno aluno) {
+		service.editar(aluno);
+		return "redirect:/alunos/cadastrar";
 	}
 
 }

@@ -38,10 +38,11 @@
 	                        <td th:text="${c.nm_curso}"></td>
 	                        <td th:text="${c.nm_instituicao}"></td>
 	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/Cursos/editar/1" role="button">
+	                            <a class="btn btn-info btn-sm" th:href="@{/cursos/editar/{id} (id=${c.id}) }" role="button">
 	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
 	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
+	                            <button th:id="${ 'btn_cursos/excluir/' + c.id}" type="button" class="btn btn-danger btn-sm" 
+	                                    data-toggle="modal" data-target="#myModal">
 	                                <span class="oi oi-circle-x" title="ExclusÃ£o desabilitada" aria-hidden="true"></span>
 	                            </button>
 	                        </td>
@@ -50,6 +51,8 @@
 	                </table>
 	            </div>
 	        </div>
+	        
+	        <div th:replace="fragments/modal :: modal"></div>
 	        
 	    </section>
 </body>

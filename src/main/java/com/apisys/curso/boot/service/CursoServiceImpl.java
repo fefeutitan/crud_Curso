@@ -50,4 +50,13 @@ public class CursoServiceImpl implements CursoService {
 		return dao.findAll();
 	}
 
+	@Override
+	public boolean cursoTemAlunos(Long id) {
+		if(buscarPorId(id).getCd_curso().isEmpty()) {
+			return false;
+		}
+		return true;
+	}
+
+
 }

@@ -14,6 +14,8 @@ public interface CursoService {
 	
 	public Curso buscarPorId(Long id);
 		
-	public List<Curso> buscarTodos(); 
+	public List<Curso> buscarTodos();
+
+	public boolean cursoTemAlunos(Long id);
 
 }
