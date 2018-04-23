@@ -20,7 +20,9 @@
 	        </nav>
 	
 	        <div class="container" id="listagem">
-	
+	        
+	        	<div th:replace="fragments/alert"></div>
+	        		
 	            <div class="table-responsive">
 	                <table class="table table-striped table-hover table-sm">
 	                    <thead>
@@ -39,14 +41,14 @@
 	                        <td th:text="${a.nm_aluno}"></td>
 	                        <td th:text="${a.nu_matricula}"></td>
 	                        <td th:text="${a.nu_semestre}"></td>
-	                        <td th:text="${a.cd_curso}"></td>
+	                        <td th:text="${a.cd_curso.nm_curso}"></td>
 	                        <td th:text="${a.ds_status}"></td>
 	                        <td></td>
 	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" th:href="@{/alunos/editar/{id} (id=${c.id}) }" role="button">
+	                            <a class="btn btn-info btn-sm" th:href="@{/alunos/editar/{id} (id=${a.id}) }" role="button">
 	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
 	                            </a>
-	                            <button id="btn_alunos/excluir/1" type="button" class="btn btn-danger btn-sm"
+	                            <button th:id="${#strings.concat('btn_alunos/excluir/', a.id) }" type="button" class="btn btn-danger btn-sm"
 	                                    data-toggle="modal" data-target="#myModal">
 	                                <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span>
 	                            </button>
@@ -56,6 +58,9 @@
 	                </table>
 	            </div>
 	        </div>
+	        
+	        <div th:replace="fragments/modal :: modal"></div>
+	        
 	    </section>
 
 </body>

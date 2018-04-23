@@ -52,7 +52,7 @@ public class CursoServiceImpl implements CursoService {
 
 	@Override
 	public boolean cursoTemAlunos(Long id) {
-		if(buscarPorId(id).getCd_curso().isEmpty()) {
+		if(buscarPorId(id).getAlunos().isEmpty()) {
 			return false;
 		}
 		return true;

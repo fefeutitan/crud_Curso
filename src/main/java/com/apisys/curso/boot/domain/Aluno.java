@@ -27,12 +27,13 @@ public class Aluno extends AbstractEntity<Long>{
 	private int nu_semestre;
 	
 	public enum MyEnum{ matriculado , trancado , jubilado }; 
-	private MyEnum ds_status;
+	private MyEnum ds_status;	
 	@Column(name="ds_status") 
 	@Enumerated(EnumType.ORDINAL) 
 	public MyEnum getMyEnum() { 
 	    return ds_status;
 	}
+	
 	public String getNm_aluno() {
 		return nm_aluno;
 	}

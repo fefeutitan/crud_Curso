@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.apisys.curso.boot.domain.Curso;
 import com.apisys.curso.boot.service.CursoService;
@@ -28,8 +29,9 @@ public class CursoController {
 		return "/curso/lista";
 	}
 	@PostMapping("/salvar")
-	public String salvar(Curso curso) {
+	public String salvar(Curso curso, RedirectAttributes attr) {
 		service.salvar(curso);
+		attr.addFlashAttribute("success", "Curso INSERIDO comm sucesso.");
 		return "redirect:/cursos/cadastrar";
 	}
 	
@@ -40,15 +42,19 @@ public class CursoController {
 	}
 	
 	@PostMapping("/editar")
-	public String editar(Curso curso) {
+	public String editar(Curso curso, RedirectAttributes attr) {
 		service.editar(curso);
+		attr.addFlashAttribute("success", "Curso EDITADO ocm sucesso.");
 		return "redirect:/cursos/cadastrar";
 	}
 	
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, ModelMap model) {
-		if (!service.cursoTemAlunos(id)) {
+		if (service.cursoTemAlunos(id)) {
+			model.addAttribute("fail", "Curso NÃO REMOVIDO. Possui Alunos matriculados.");
+		} else {
 			service.excluir(id);
+			model.addAttribute("success", "Curso REMOVIDO com sucesso.");
 		}
 		return listar(model);
 	}
