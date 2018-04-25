@@ -40,7 +40,8 @@ Requisitos funcionais:
 
 Requisitos técnicos:
 
-*Front-end: Thymeleaf
+*Front-end: 
+-Thymeleaf
 *Backend: 
 -Maven
 -Spring Boot + Spring MVC
