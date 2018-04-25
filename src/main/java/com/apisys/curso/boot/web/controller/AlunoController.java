@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.apisys.curso.boot.domain.Aluno;
 import com.apisys.curso.boot.domain.Curso;
+import com.apisys.curso.boot.domain.Status;
 import com.apisys.curso.boot.service.AlunoService;
 import com.apisys.curso.boot.service.CursoService;
 
@@ -65,6 +66,11 @@ public class AlunoController {
 			alunoService.excluir(id);
 			model.addAttribute("success", "Curso REMOVIDO com sucesso.");
 		return listar(model);
+	}
+		
+	@ModelAttribute("status0")
+	public Status[] getStatus() {
+		return Status.values();
 	}
 
 }

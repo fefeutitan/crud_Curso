@@ -43,7 +43,7 @@
 	                            <option value="">Selecione...</option>
 	                            <option th:each="c : ${cursos}" 
 	                                    th:value="${c.id}" 
-	                                    th:text="${c.nm_curso}">Java</option>
+	                                    th:text="${c.nm_curso}"></option>
 	                        </select>
 	                        <!-- 
 	                        <input type="text" class="form-control" id="cd_curso" th:field="*{cd_curso}" />
@@ -70,15 +70,13 @@
 	                    </div>
 						<div class="form-group col-md-6">
 								<label for="ds_status">Status</label>
-								<select id="ds_status" class="form-control">
+								<select id="ds_status" class="form-control" th:field="*{status}">
 									<option value="">Selecione...</option>
-									<option value="1">Matriculado</option>
-									<option value="2">Trancado</option>
-									<option value="3">Jubilado</option>
+	                                <option th:each="s : ${status0}" 
+	                                        th:value="${s}" 
+	                                        th:text="${s.descricao}"></option>
 								</select>
-								<!-- 
-	                        <input type="text" class="form-control" id="ds_status" th:field="*{ds_status}" />
-								-->
+								
 								<div class="invalid-feedback">
 		
 								</div>
