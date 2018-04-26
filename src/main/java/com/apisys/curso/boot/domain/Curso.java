@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
 @Entity
@@ -19,6 +21,8 @@ public class Curso extends AbstractEntity<Long>{
 	private String cd_curso;	
 	
 	@Column
+	@NotBlank(message = "Digite o nome do curso.")
+	@Size(min = 3, max = 255, message = "O nome do curso deve ter entre {min} e {max} caracteres")
 	private String nm_curso;	
 	
 	@Column

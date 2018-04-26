@@ -26,6 +26,9 @@
 	        
 	            <form th:action="${curso.id == null} ? @{/cursos/salvar} : @{/cursos/editar}" 
 	                  th:object="${curso}" method="POST">
+	                  
+	        		<div th:replace="fragments/validacao :: validacao"></div>
+	        		
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nm_curso">Cursos</label>

@@ -1,8 +1,11 @@
 package com.apisys.curso.boot.web.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +32,12 @@ public class CursoController {
 		return "/curso/lista";
 	}
 	@PostMapping("/salvar")
-	public String salvar(Curso curso, RedirectAttributes attr) {
+	public String salvar(@Valid Curso curso, BindingResult result,  RedirectAttributes attr) {
+		
+		if(result.hasErrors()) {
+			return "/curso/cadastro";		
+		}
+		
 		service.salvar(curso);
 		attr.addFlashAttribute("success", "Curso INSERIDO comm sucesso.");
 		return "redirect:/cursos/cadastrar";
@@ -42,7 +50,12 @@ public class CursoController {
 	}
 	
 	@PostMapping("/editar")
-	public String editar(Curso curso, RedirectAttributes attr) {
+	public String editar(@Valid Curso curso, BindingResult result,  RedirectAttributes attr) {
+		
+		if(result.hasErrors()) {
+			return "/curso/cadastro";		
+		}
+		
 		service.editar(curso);
 		attr.addFlashAttribute("success", "Curso EDITADO ocm sucesso.");
 		return "redirect:/cursos/cadastrar";
